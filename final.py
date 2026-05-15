@@ -1069,10 +1069,11 @@ else:
 choice = st.sidebar.radio(
     "📌 Navigation",
     pages,
-    index=pages.index(st.session_state["page"]) if st.session_state["page"] in pages else 0
-)    st.session_state["page"] = choice
+    index=pages.index(st.session_state["page"])
+    if st.session_state["page"] in pages else 0
+)
 
-        st.sidebar.divider()
+st.session_state["page"] = choice
 
         # ── Logout Button ──
         if st.sidebar.button("🔓 Logout", use_container_width=True):
