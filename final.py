@@ -225,10 +225,27 @@ st.set_page_config(page_title="AQIS - Air Quality Intelligence System", layout="
 
 # ✅ APPLY BACKGROUND IMAGE
 def set_background(image_path=None, image_url=None, overlay_opacity=0.55):
-# ════════════════════════════════════════════════════════════════
-# ════════════════════════════════════════════════════════════════
 
-st.markdown("""
+    bg_css = ""
+
+    st.markdown(f"""
+    <style>
+
+    .stApp {{
+        background: linear-gradient(
+            135deg,
+            #0a0e1a 0%,
+            #0d1b2a 50%,
+            #0a1628 100%
+        );
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }}
+
+    </style>
+    """, unsafe_allow_html=True)
 <style>
     :root { --card-bg: rgba(255,255,255,0.06); --card-border: rgba(255,255,255,0.08); }
     .stApp { padding: 18px 24px; }
