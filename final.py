@@ -45,11 +45,7 @@ def set_background(image_path=None, image_url=None, overlay_opacity=0.55):
         image_url  (str): URL of an online image (used if image_path is None or not found)
         overlay_opacity (float): Dark overlay opacity 0.0–1.0 (default 0.55)
     
-    Usage examples:
-        set_background(image_path="background.jpg")
-        set_background(image_url="https://images.unsplash.com/photo-1519692933481-e162a57d6721?w=1920")
-        set_background(image_path="bg.jpg", overlay_opacity=0.4)
-    """
+
     bg_css = ""
 
     # Try local file first
