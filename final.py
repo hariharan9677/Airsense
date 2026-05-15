@@ -264,57 +264,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 # ════════════════════════════════════════════════════════════════
 
-st.markdown("""
-<style>
-    :root { --card-bg: rgba(255,255,255,0.06); --card-border: rgba(255,255,255,0.08); }
-    .stApp { padding: 18px 24px; }
-    .login-box { 
-        max-width: 400px; margin: auto; padding: 2rem; border-radius: 15px; 
-        background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); 
-        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    }
-    .hero-section {
-        background-color: rgba(51, 102, 204, 0.15); padding: 30px; border-radius: 15px; 
-        border-left: 6px solid #3366CC; margin-bottom: 25px;
-        backdrop-filter: blur(8px);
-    }
-    .home-hero {
-        text-align: center; padding: 50px; background: rgba(255,255,255,0.02);
-        border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);
-    }
-    .aq-badge { 
-        padding: 10px 18px; border-radius: 12px; font-weight: 700; 
-        display: inline-block; border: 2px solid transparent; margin-bottom: 15px;
-    }
-    .aq-good     { background: #d1fae5; border-color: #16a34a; color: #064e3b; }
-    .aq-moderate { background: #facc1533; border-color: #ecff1a; color: #ecff1a; }
-    .aq-poor     { background: #fed7aa; border-color: #ea580c; color: #7c2d12; }
-    .aq-hazardous{ background: #ef444433; border-color: #991b1b; color: #6b0b0b; }
-    .info-card { 
-        background: rgba(255,255,255,0.06); border: 1px solid var(--card-border); 
-        border-radius: 14px; padding: 14px; min-width: 260px; margin-bottom: 12px;
-        backdrop-filter: blur(6px);
-    }
-    .info-title { font-size: 15px; margin: 0 0 6px 0; font-weight: 600; color: inherit; }
-    .info-value { font-size: 17px; margin: 0; font-weight: 700; color: inherit; }
-    .scroll-row { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 8px; }
-
-    /* Make Streamlit native elements blend with the background */
-    [data-testid="stDataFrame"],
-    [data-testid="stTable"] {
-        background: rgba(10, 20, 40, 0.6) !important;
-        border-radius: 10px;
-    }
-    div[data-testid="metric-container"] {
-        background: rgba(51, 102, 204, 0.15);
-        border: 1px solid rgba(51, 102, 204, 0.3);
-        border-radius: 10px;
-        padding: 10px 16px;
-        backdrop-filter: blur(6px);
-    }
-</style>
-""", unsafe_allow_html=True)
-
 
 # ─────────────────────────────────────────────
 # 2. DATA & MODEL LOADING (cached)
