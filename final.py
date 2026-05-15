@@ -41,9 +41,10 @@ def get_base64_image(image_path):
         return None
 
 # ---------- Background Function ---------- #
-
-def set_background(image_path=None, image_url=None, overlay_opacity=0.55):
-
+set_background(
+    image_path=r"air12.png",
+    overlay_opacity=0.30
+)
     bg_css = ""
 
     # Local image
