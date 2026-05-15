@@ -28,15 +28,38 @@ from email.mime.multipart import MIMEMultipart
 # ─────────────────────────────────────────────
 # BACKGROUND IMAGE HELPER
 # ─────────────────────────────────────────────
-def set_background(image_url=None, overlay_opacity=0.55):
+import streamlit as st
+import base64
+
+# ---------- Convert Local Image to Base64 ---------- #
+
+def get_base64_image(image_path):
+    try:
+        with open(image_path, "rb") as img:
+            return base64.b64encode(img.read()).decode()
+    except:
+        return None
+
+# ---------- Background Function ---------- #
+
+def set_background(image_path=None, image_url=None, overlay_opacity=0.55):
 
     bg_css = ""
 
-    # Online image
-    if image_url:
+    # Local image
+    if image_path:
+        b64 = get_base64_image(image_path)
+
+        if b64:
+            bg_css = f'''
+            background-image: url("data:image/png;base64,{b64}");
+            '''
+
+    # Online image fallback
+    if not bg_css and image_url:
         bg_css = f'background-image: url("{image_url}");'
 
-    # Fallback gradient
+    # Gradient fallback
     if not bg_css:
         bg_css = """
         background: linear-gradient(
@@ -62,7 +85,7 @@ def set_background(image_url=None, overlay_opacity=0.55):
         content: "";
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, {overlay_opacity});
+        background: rgba(0,0,0,{overlay_opacity});
         z-index: 0;
         pointer-events: none;
     }}
@@ -72,24 +95,17 @@ def set_background(image_url=None, overlay_opacity=0.55):
         z-index: 1;
     }}
 
-    [data-testid="stSidebar"] {{
-        background: rgba(5, 15, 35, 0.8) !important;
-        backdrop-filter: blur(10px);
-    }}
-
     </style>
     """, unsafe_allow_html=True)
 
-# ---------------- Apply Background ---------------- #
+# ---------- Apply Background ---------- #
 
 set_background(
-    image_url="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1920",
-    overlay_opacity=0.45
+    image_path="air12.png",
+    overlay_opacity=0.30
 )
 
-st.title("🌍 Air Quality Dashboard")
-st.write("Background image working successfully!")# ─────────────────────────────────────────────
-# EMAIL ALERT FUNCTION
+st.title("🌍 Air Quality Dashboard")# EMAIL ALERT FUNCTION
 # ─────────────────────────────────────────────
 def send_email_alert(recipient_email, sender_email, sender_password, subject, body):
     """Send an email alert using Gmail SMTP."""
