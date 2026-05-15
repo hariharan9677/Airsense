@@ -41,10 +41,10 @@ def get_base64_image(image_path):
         return None
 
 # ---------- Background Function ---------- #
-set_background(
-    image_path=r"air12.png",
-    overlay_opacity=0.30
-)
+# ---------- Background Function ---------- #
+
+def set_background(image_path=None, image_url=None, overlay_opacity=0.55):
+
     bg_css = ""
 
     # Local image
@@ -56,11 +56,11 @@ set_background(
             background-image: url("data:image/png;base64,{b64}");
             '''
 
-    # Online image fallback
+    # Online image
     if not bg_css and image_url:
         bg_css = f'background-image: url("{image_url}");'
 
-    # Gradient fallback
+    # Fallback gradient
     if not bg_css:
         bg_css = """
         background: linear-gradient(
@@ -97,9 +97,7 @@ set_background(
     }}
 
     </style>
-    """, unsafe_allow_html=True)
-
-# ---------- Apply Background ---------- #
+    """, unsafe_allow_html=True)# ---------- Apply Background ---------- #
 
 set_background(
     image_path="air12.png",
@@ -995,13 +993,11 @@ else:
             st.session_state["page"] = pages[0]
 
         # ── Sidebar Navigation ──
-        choice = st.sidebar.radio(
+choice = st.sidebar.radio(
     "📌 Navigation",
     pages,
-    index=pages.index(st.session_state["page"])
-    if st.session_state["page"] in pages else 0
-)
-        st.session_state["page"] = choice
+    index=pages.index(st.session_state["page"]) if st.session_state["page"] in pages else 0
+)    st.session_state["page"] = choice
 
         st.sidebar.divider()
 
