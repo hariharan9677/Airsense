@@ -1051,7 +1051,7 @@ else:
         </h2>
         """, unsafe_allow_html=True)
 
-        st.sidebar.write(" Welcome to AirSense Monitoring System")
+        st.sidebar.write("Welcome to AirSense Monitoring System")
 
         # ── Navigation Pages ──
         pages = [
@@ -1066,20 +1066,19 @@ else:
             st.session_state["page"] = pages[0]
 
         # ── Sidebar Navigation ──
-choice = st.sidebar.radio(
-    "📌 Navigation",
-    pages,
-    index=pages.index(st.session_state["page"])
-    if st.session_state["page"] in pages else 0
-)
+        choice = st.sidebar.radio(
+            "📌 Navigation",
+            pages,
+            index=pages.index(st.session_state["page"])
+            if st.session_state["page"] in pages else 0
+        )
 
-st.session_state["page"] = choice
+        st.session_state["page"] = choice
 
         # ── Logout Button ──
         if st.sidebar.button("🔓 Logout", use_container_width=True):
             st.session_state["logged_in"] = False
             st.rerun()
-
         # ─────────────────────────────────────────────
         # PAGE NAVIGATION
         # ─────────────────────────────────────────────
