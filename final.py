@@ -210,7 +210,7 @@ st.set_page_config(page_title="AQIS - Air Quality Intelligence System", layout="
 
 # ✅ APPLY BACKGROUND IMAGE
 set_background(
-    image_path=r"C:\Users\acer\Desktop\project weather ass\air12.png",
+    image_path=r"air12.png",
     overlay_opacity=0.30
 )
 # ════════════════════════════════════════════════════════════════
